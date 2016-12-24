@@ -3,6 +3,7 @@ import './App.css';
 
 // Import components
 import VideoLink from './components/VideoLink.js';
+import Player from './components/Player.js';
 
 class App extends Component {
   render() {
@@ -11,12 +12,10 @@ class App extends Component {
         <div className="App-header">
           <h1> Video Hashes Generator </h1>
           <p> A React and Node Web Application </p>
-
           <VideoLink />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <Player />
       </div>
     );
   }
