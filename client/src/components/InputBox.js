@@ -5,7 +5,7 @@ import './InputBox.css';
 class InputBox extends Component {
   render() {
     return(
-      <input type='text' placeholder='Please paste a link to your desired video here' className='Input Input__textfield'/>
+      <input type='text' placeholder={this.props.placeholder} className='Input Input__textfield'/>
     );
   }
 }

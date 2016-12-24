@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
+import './PlayerFilter.css';
+import InputBox from './InputBox.js';
 
 class PlayerFilter extends Component {
   render() {
     return(
-      <div>
-        <Tag tags={['human', 'shit', 'son']} time='00:00:01'/>
+      <div className='PlayerFilter'>
+        <InputBox placeholder={'Filter'}/>
+
+        <div className='Timestamp'>
+          <Tag tags={['human', 'shit', 'son']} time='00:00:01'/>
+          <Tag tags={['human2', 'shit', 'son']} time='00:00:01'/>
+        </div>
       </div>
     );
   }
@@ -18,9 +25,9 @@ class Tag extends Component {
     }, '');
 
     return(
-      <div>
-        <p>{tags}</p>
-        <p>{this.props.time}</p>
+      <div className='Tag'>
+        <p className='Tag__tags'> {tags} </p>
+        <p className='Tag__time'> {this.props.time} </p>
       </div>
     );
   }
