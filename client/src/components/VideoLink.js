@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './VideoLink.css';
+import InputBox from './InputBox.js';
 
 class VideoLink extends Component {
 
   render() {
     return (
       <form className='Form'>
-        <input type='text' placeholder='Please paste a link to your desired video here' className='Input Input__textfield'/>
+        <InputBox />
         <input type='button' value='Search' className='Input Input__button'/>
       </form>
     );

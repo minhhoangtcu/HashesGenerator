@@ -1,0 +1,13 @@
+.Input__textfield {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #222;
+  color: white;
+  width: 85%;
+  border: 1px solid grey;
+}
+
+.Input__textfield:focus {
+  outline: none;
+  border: 1px solid white; 
+}
