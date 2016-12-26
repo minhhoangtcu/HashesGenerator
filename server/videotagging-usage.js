@@ -1,6 +1,7 @@
+require('dotenv').config();
 var App = require('./videotagging.js');
 
-const app = new App('oqH8FGaAu3eVUSsqAsnXUamKOP5UroBsXqk4zoB9', 'PG-E3wPRtsYoPFLzZU26OwDMAsahdZnWtKKtoL18');
+const app = new App(process.env.ID, process.env.SECRET);
 
 app.predictVideo('http://www.w3schools.com/html/mov_bbb.mp4')
   .then((tag) => {
