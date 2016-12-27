@@ -7,8 +7,19 @@ class VideoLink extends Component {
   render() {
     return (
       <form className='Form'>
-        <InputBox placeholder={'Please paste a link to your desired video here'}/>
-        <input type='button' value='Search' className='Input Input__button'/>
+        <InputBox 
+          placeholder={'Please paste a link to your desired video here'}
+          urlInput={this.props.urlInput}
+          onUserInput={this.props.onUserInput}
+        />
+
+        <input 
+          type='button' 
+          value='Search' 
+          className='Input Input__button'
+          onClick={this.props.analyzeVideo}
+        />
+
       </form>
     );
   }
