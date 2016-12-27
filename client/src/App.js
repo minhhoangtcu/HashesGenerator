@@ -14,17 +14,18 @@ class App extends Component {
 
     this.state = {
       urlInput: '',
+      filterClass: '',
       classes: [],
     };
 
-    this.onUserInput = this.onUserInput.bind(this);
+    this.onUserURLInput = this.onUserURLInput.bind(this);
     this.analyzeVideo = this.analyzeVideo.bind(this);
   }
 
   // Whenever user changes data in the url field, we change our state
-  onUserInput(urlInput) {
+  onUserURLInput(event) {
     this.setState({
-      urlInput: urlInput,
+      urlInput: event.target.value,
     });
   }
 
@@ -54,13 +55,14 @@ class App extends Component {
           <p> A React and Node Web Application </p>
 
           <VideoLink
-            onUserInput={this.onUserInput}
+            onUserInput={this.onUserURLInput}
             analyzeVideo={this.analyzeVideo}
           />
         </div>
 
         <Player 
           classes={this.state.classes}
+          filterClass={this.state.filterClass}
         />
       </div>
     );
