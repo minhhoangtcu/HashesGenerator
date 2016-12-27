@@ -13,7 +13,8 @@ app.get('/analyze', (req, res) => {
     .then((tag) => {
       res.json(tag.classes);
     }).catch(err => {
-      console.log(err);
+      console.error(err.stack)
+      res.status(500).send('Invalid URL!')
     });
 
 });

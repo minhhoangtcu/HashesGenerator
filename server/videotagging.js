@@ -22,12 +22,18 @@ class App {
 
           fetch(url, {method: 'GET', headers: headers})
             .then((res) => {
+
+              if (!res.ok) {
+                throw new Error(res.statusText);
+              }
+
               return res.json();
+
             }).then((json) => {
               const tag = json.results[0].result.tag;
               resolve(tag);
             }).catch(err => {
-              reject(err);
+              reject(err); // Network connection type error
             });
 
         });

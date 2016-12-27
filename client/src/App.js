@@ -31,11 +31,17 @@ class App extends Component {
   // Whenever we click the button, send request to server
   analyzeVideo() {
 
-    const url = 'http://www.w3schools.com/html/mov_bbb.mp4';
-
-    fetch(`${END_POINT}?url=${url}`)
+    fetch(`${END_POINT}?url=${this.state.urlInput}`)
       .then(res => {
-        console.log(res.json());
+        if (!res.ok) {
+          throw new Error('Server error!');
+        }
+
+        return res.json();
+
+      }).catch(err => {
+        // TODO: Handle this in the UI
+        console.error(err);
       });
 
   }
