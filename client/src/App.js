@@ -40,6 +40,11 @@ class App extends Component {
 
         return res.json();
 
+      }).then(json => {
+        this.setState({
+          classes: json,
+        });
+
       }).catch(err => {
         // TODO: Handle this in the UI
         console.error(err);
