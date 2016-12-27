@@ -10,6 +10,7 @@ class App {
   }
 
   predictVideo(videoURL) {
+
     return new Promise((resolve, reject) => {
 
       this._app.getToken()
@@ -25,6 +26,8 @@ class App {
             }).then((json) => {
               const tag = json.results[0].result.tag;
               resolve(tag);
+            }).catch(err => {
+              reject(err);
             });
 
         });

@@ -6,11 +6,14 @@ const VideoTagging = require('./videotagging.js');
 const tagging = new VideoTagging(process.env.ID, process.env.SECRET);
 
 app.get('/analyze', (req, res) => {
-  const url = req.param('url');
-  
+
+  const url = req.query.url;
+
   tagging.predictVideo(url)
     .then((tag) => {
       res.json(tag.classes);
+    }).catch(err => {
+      console.log(err);
     });
 
 });
