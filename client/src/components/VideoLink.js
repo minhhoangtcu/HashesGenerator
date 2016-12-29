@@ -9,7 +9,7 @@ class VideoLink extends Component {
       <form className='Form'>
         <InputBox 
           placeholder={'Please paste a link to your desired video here'}
-          urlInput={this.props.urlInput}
+          value={this.props.value}
           onUserInput={this.props.onUserInput}
         />
 

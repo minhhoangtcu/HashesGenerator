@@ -10,7 +10,7 @@ class InputBox extends Component {
         type='text' 
         placeholder={this.props.placeholder} 
         className='Input Input__textfield'
-        value={this.props.urlInput}
+        value={this.props.value}
         ref='urlInput'
         onChange={this.props.onUserInput}
       />

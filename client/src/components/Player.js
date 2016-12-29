@@ -11,7 +11,10 @@ class Player extends Component {
           Your browser does not support HTML5 video.
         </video>
 
-        <PlayerFilter 
+        <PlayerFilter
+          value={this.props.value}
+          onUserInput={this.props.onUserInput}
+
           classes={this.props.classes}
           filterClass={this.props.filterClass}
         />

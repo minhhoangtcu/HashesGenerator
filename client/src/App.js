@@ -8,6 +8,7 @@ import Player from './components/Player.js';
 const END_POINT = 'http://localhost:3000/analyze';
 
 // https://github.com/minhhoangtcu/minhhoangtcu.github.io/raw/master/video/John%20Lewis%20-%20The%20Long%20Wait-HD.mp4
+// http://www.w3schools.com/html/mov_bbb.mp4
 
 class App extends Component {
 
@@ -22,6 +23,7 @@ class App extends Component {
     };
 
     this.onUserURLInput = this.onUserURLInput.bind(this);
+    this.onUserFilterInput = this.onUserFilterInput.bind(this);
     this.analyzeVideo = this.analyzeVideo.bind(this);
   }
 
@@ -73,15 +75,23 @@ class App extends Component {
           <p> A React and Node Web Application </p>
 
           <VideoLink
+            // Input Box
+            value={this.state.urlInput}
             onUserInput={this.onUserURLInput}
+
+            // Button
             analyzeVideo={this.analyzeVideo}
           />
         </div>
 
         <Player 
+          // PlayerFilter
           classes={this.state.classes}
           playingURL={this.state.playingURL}
+
+          // InputBox
           filterClass={this.state.filterClass}
+          onUserInput={this.onUserFilterInput}
         />
       </div>
     );
