@@ -5,6 +5,11 @@
   border-radius: 5px;
 }
 
+.Timestamp {
+  max-height: 380px;
+  overflow: auto;
+}
+
 .Tag {
   display: flex;
   justify-content: space-between;
