@@ -5,7 +5,9 @@ import './App.css';
 import VideoLink from './components/VideoLink.js';
 import Player from './components/Player.js';
 
-const END_POINT = 'http://localhost:3000/analyze'; 
+const END_POINT = 'http://localhost:3000/analyze';
+
+// https://github.com/minhhoangtcu/minhhoangtcu.github.io/raw/master/video/John%20Lewis%20-%20The%20Long%20Wait-HD.mp4
 
 class App extends Component {
 
@@ -14,6 +16,7 @@ class App extends Component {
 
     this.state = {
       urlInput: '',
+      playingURL: 'http://www.w3schools.com/html/mov_bbb.mp4', // set as default
       filterClass: '',
       classes: [],
     };
@@ -29,10 +32,19 @@ class App extends Component {
     });
   }
 
+  // Whenever user changes data in the filter field, we change our state
+  onUserFilterInput(event) {
+    this.setState({
+      filterClass: event.target.value,
+    });
+  }
+
   // Whenever we click the button, send request to server
   analyzeVideo() {
 
-    fetch(`${END_POINT}?url=${this.state.urlInput}`)
+    const url = this.state.urlInput;
+
+    fetch(`${END_POINT}?url=${url}`)
       .then(res => {
         if (!res.ok) {
           throw new Error('Server error!');
@@ -43,6 +55,7 @@ class App extends Component {
       }).then(json => {
         this.setState({
           classes: json,
+          playingURL: url,
         });
 
       }).catch(err => {
@@ -67,6 +80,7 @@ class App extends Component {
 
         <Player 
           classes={this.state.classes}
+          playingURL={this.state.playingURL}
           filterClass={this.state.filterClass}
         />
       </div>
