@@ -9,22 +9,3 @@
   max-height: 380px;
   overflow: auto;
 }
-
-.Tag {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  font-size: 12px;
-}
-
-.Tag > p {
-  margin: 0px;
-}
-
-.Tag__tags {
-
-}
-
-.Tag__time {
-
-}

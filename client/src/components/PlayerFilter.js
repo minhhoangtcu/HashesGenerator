@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './PlayerFilter.css';
 import InputBox from './InputBox.js';
+import Tag from './Tag';
 
 class PlayerFilter extends Component {
 
@@ -47,8 +48,6 @@ class PlayerFilter extends Component {
       height: this.getHeight(),
     };
 
-
-
     return(
       <div className='PlayerFilter'>
         <InputBox 
@@ -60,22 +59,6 @@ class PlayerFilter extends Component {
         <div className='Timestamp' style={customFilterStyle}>
           {rows}
         </div>
-      </div>
-    );
-  }
-}
-
-class Tag extends Component {
-  render() {
-
-    const tags = this.props.tags.reduce((acc, cur) => {
-      return acc === '' ? cur : acc + ', ' + cur;
-    }, '');
-
-    return(
-      <div className='Tag'>
-        <p className='Tag__tags'> {tags} </p>
-        <p className='Tag__time'> {this.props.time} </p>
       </div>
     );
   }
