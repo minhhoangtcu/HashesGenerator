@@ -1,9 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const VideoTagging = require('./videotagging.js');
+const VideoTagging = require('clarifai-video-tagging');
 
 const tagging = new VideoTagging(process.env.ID, process.env.SECRET);
+
+app.use(cors());
+app.options('*', cors());
 
 app.get('/analyze', (req, res) => {
 
