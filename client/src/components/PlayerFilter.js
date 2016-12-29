@@ -22,27 +22,37 @@ class PlayerFilter extends Component {
     let rows = []; // array of components
     let time = 0;
 
-    this.props.classes.forEach((classesForCurrentTime) => {
+    if (this.props.tag !== undefined && this.props.tag.classes !== undefined) {
 
-      // Search through all classes for each second and only includes this timestamp 
-      classesForCurrentTime.some(classification => {
-        if (classification.includes(this.props.filterClass)) {
-          rows.push(
-            <Tag 
-            tags={classesForCurrentTime} 
-            time={time}
-            key={time}
-          />);
+      this.props.tag.classes.forEach((classesForCurrentTime) => {
 
-          return true;
-        }
+        let index = 0;
 
-        return false;
+        // Search through all classes for each second and only includes this timestamp 
+        classesForCurrentTime.some(classification => {
+
+          if (classification.includes(this.props.filterClass)) {
+            rows.push(
+              <Tag 
+                tag={classification}
+                prob={this.props.tag.probs[time][index].toFixed(2)}
+                time={time}
+                key={time}
+              />
+            );
+
+            return true;
+          }
+
+          index++;
+          return false;
+        });
+
+        time++;
+
       });
 
-      time++;
-
-    });
+    }
 
     const customFilterStyle = {
       height: this.getHeight(),

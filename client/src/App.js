@@ -19,7 +19,7 @@ class App extends Component {
       urlInput: '',
       playingURL: 'http://www.w3schools.com/html/mov_bbb.mp4', // set as default
       filterClass: '',
-      classes: [],
+      tag: [],
     };
 
     this.onUserURLInput = this.onUserURLInput.bind(this);
@@ -55,8 +55,9 @@ class App extends Component {
         return res.json();
 
       }).then(json => {
+        // TODO: Tell the user about the process
         this.setState({
-          classes: json,
+          tag: json,
           playingURL: url,
         });
 
@@ -86,7 +87,7 @@ class App extends Component {
 
         <Player 
           // PlayerFilter
-          classes={this.state.classes}
+          tag={this.state.tag}
           playingURL={this.state.playingURL}
 
           // InputBox

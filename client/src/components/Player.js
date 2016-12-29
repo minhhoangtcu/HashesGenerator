@@ -4,6 +4,16 @@ import PlayerFilter from './PlayerFilter.js';
 
 class Player extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.onUserClickTag = this.onUserClickTag.bind(this);
+  }
+
+  onUserClickTag(event) {
+    console.log(event);
+  }
+
   render() {
     return (
       <div className='Player'>
@@ -21,8 +31,9 @@ class Player extends Component {
           value={this.props.value}
           onUserInput={this.props.onUserInput}
 
+          onUserClickTag={this.onUserClickTag}
           videoDOM={this.videoDOM}
-          classes={this.props.classes}
+          tag={this.props.tag}
           filterClass={this.props.filterClass}
         />
       </div>

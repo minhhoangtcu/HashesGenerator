@@ -15,7 +15,7 @@ app.get('/analyze', (req, res) => {
 
   tagging.predictVideo(url)
     .then((tag) => {
-      res.json(tag.classes);
+      res.json(tag);
     }).catch(err => {
       console.error(err.stack)
       res.status(500).send('Invalid URL!')
