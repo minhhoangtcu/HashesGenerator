@@ -7,11 +7,13 @@ class Player extends Component {
   constructor(props) {
     super(props);
 
-    this.onUserClickTag = this.onUserClickTag.bind(this);
+    this.onClickTag = this.onClickTag.bind(this);
   }
 
-  onUserClickTag(event) {
-    console.log(event);
+  // Whenever user click a tag in the filter
+  onClickTag(time) {
+    this.videoDOM.currentTime = time;
+    this.videoDOM.play();
   }
 
   render() {
@@ -31,8 +33,9 @@ class Player extends Component {
           value={this.props.value}
           onUserInput={this.props.onUserInput}
 
-          onUserClickTag={this.onUserClickTag}
-          videoDOM={this.videoDOM}
+          onClick={this.onClickTag}
+          videoDOM={this.videoDOM} // TODO: dynamically resize filter section
+
           tag={this.props.tag}
           filterClass={this.props.filterClass}
         />

@@ -1,10 +1,11 @@
 .PlayerFilter {
+  height: 380px;
   width: 200px;
   background-color: grey;
   color: white;
 }
 
 .Timestamp {
-  max-height: 380px;
+  height: 345px; /* 380 - 35 (height of InputBox) = 345 */
   overflow: auto;
 }

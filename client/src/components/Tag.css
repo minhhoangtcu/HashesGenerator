@@ -5,6 +5,10 @@
   font-size: 12px;
 }
 
+.Tag:hover {
+  background-color: #a2a2a2;
+}
+
 .Tag > p {
   margin: 0px;
 }

@@ -24,6 +24,7 @@ class App extends Component {
 
     this.onUserURLInput = this.onUserURLInput.bind(this);
     this.onUserFilterInput = this.onUserFilterInput.bind(this);
+    
     this.analyzeVideo = this.analyzeVideo.bind(this);
   }
 

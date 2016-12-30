@@ -5,18 +5,6 @@ import Tag from './Tag';
 
 class PlayerFilter extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.getHeight = this.getHeight.bind(this);
-  }
-
-  getHeight() {
-    return this.props.videoDOM !== undefined 
-           ? this.props.videoDOM.videoHeight - 35 // 35px is the height of the input box
-           : '120px'; // default height
-  }
-
   render() {
 
     let rows = []; // array of components
@@ -35,9 +23,10 @@ class PlayerFilter extends Component {
             rows.push(
               <Tag 
                 tag={classification}
-                prob={this.props.tag.probs[time][index].toFixed(2)}
+                prob={this.props.tag.probs[time][index]}
                 time={time}
                 key={time}
+                onClick={this.props.onClick}
               />
             );
 
@@ -54,10 +43,6 @@ class PlayerFilter extends Component {
 
     }
 
-    const customFilterStyle = {
-      height: this.getHeight(),
-    };
-
     return(
       <div className='PlayerFilter'>
         <InputBox 
@@ -66,7 +51,7 @@ class PlayerFilter extends Component {
           onUserInput={this.props.onUserInput}
         />
 
-        <div className='Timestamp' style={customFilterStyle}>
+        <div className='Timestamp'>
           {rows}
         </div>
       </div>
