@@ -8,6 +8,12 @@ class Player extends Component {
     super(props);
 
     this.onClickTag = this.onClickTag.bind(this);
+    this.changeHeight = this.changeHeight.bind(this);
+  }
+
+  changeHeight() {
+    // Change the height of the filter to be equal to the max height, 380px, of the video.
+    this.playerDOM.style.height = (this.videoDOM.videoHeight > 380 ? 380 : this.videoDOM.videoHeight) + 'px';
   }
 
   // Whenever user click a tag in the filter
@@ -18,13 +24,14 @@ class Player extends Component {
 
   render() {
     return (
-      <div className='Player'>
+      <div className='Player' ref={playerDOM => this.playerDOM = playerDOM}>
         <video 
-          width='720' 
-          height='480' 
           src={this.props.playingURL}
           ref={(videoDOM) => {this.videoDOM = videoDOM}}
-          autoPlay>
+          onCanPlay={this.changeHeight}
+          autoPlay
+          muted
+        >
 
           Your browser does not support HTML5 video.
         </video>

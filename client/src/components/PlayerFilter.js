@@ -45,13 +45,14 @@ class PlayerFilter extends Component {
 
     return(
       <div className='PlayerFilter'>
-        <InputBox 
+        <InputBox
+          className='PlayerFilter__Input'
           placeholder={'Filter'}
           value={this.props.filterClass}
           onUserInput={this.props.onUserInput}
         />
 
-        <div className='Timestamp'>
+        <div className='PlayerFilter__Timestamp'>
           {rows}
         </div>
       </div>
