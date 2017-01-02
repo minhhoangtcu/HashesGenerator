@@ -5,7 +5,7 @@ import './App.css';
 import VideoLink from './components/VideoLink.js';
 import Player from './components/Player.js';
 
-const END_POINT = 'http://localhost:3000/analyze';
+const END_POINT = 'https://thawing-hollows-63878.herokuapp.com/analyze';
 
 // https://github.com/minhhoangtcu/minhhoangtcu.github.io/raw/master/video/John%20Lewis%20-%20The%20Long%20Wait-HD.mp4
 // http://www.w3schools.com/html/mov_bbb.mp4
