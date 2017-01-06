@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -23,6 +22,6 @@ app.get('/analyze', (req, res) => {
 
 });
 
-app.listen(3000, () => {
-  console.log('Server is listening on port 3000!')
+app.listen(process.env.PORT || 5000, () => {
+  console.log('Server is listening on port: ', process.env.PORT || 5000)
 });
